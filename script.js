@@ -2,19 +2,21 @@ document.querySelector('#search').addEventListener('click',function(){
     let departure = document.querySelector('#departure').value;
     let arrival = document.querySelector('#arrival').value;
     let date = document.querySelector('#date').value;
-    let price = document.querySelector('#')
     document.querySelector('#resultat').innerHTML = '';
        fetch(`http://localhost:3000/trips/${departure}/${arrival}/${date}`)
         .then( response => response.json())
         .then(data =>{
-            document.querySelector('#resultat').innerHTML += 
-            if (document.querySelector('#recherche') = ''){
-                document.querySelector('#recherche').innerHTML = ' <img id="train" src="./images/train.png" />'
+            console.log(data.data);
+            if(data.data){
+                document.querySelector('#resultat').innerHTML = ' <img id="train" src="./images/notfound.png" />'
                 '<div class="bordure" id="btrain"></div><p>No trip found</p>'
-            }else{
-            for(let elem of array)
-        elem = [departure, arrival, ]
-        }
-        })
+            }
+        else{
+             for(let elem of array)
+         elem =  fetch(`http://localhost:3000/trips/${departure}/${arrival}/${date}/${price}`),
+        document.querySelector('#resultat').innerHTML += `<p>${departure} ${arrival} ${date} ${price}</p><p>Book</p>`
+        
+         }
+         })
    
 })
