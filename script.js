@@ -6,16 +6,15 @@ document.querySelector('#search').addEventListener('click', function () {
     fetch(`http://localhost:3000/trips/${departure}/${arrival}/${date}`)
         .then(response => response.json())
         .then(data => {
-            console.log(data.data);
             if (!data.data) {
                 document.querySelector('#resultat').innerHTML = `<img id="train" src="./images/notfound.png" />
                 <div class="bordure" id="btrain"></div><p>No trip found</p>`
             } else {
-                for (let elem of data.data) {
+                for (let i = 0; i < 10; i++) {
+                    let elem = data.data[i]
+                    console.log(elem._id)
                     let date = new Date(elem.date)
-                    console.log(date);
                     date = `${date.getUTCDate()}/${date.getMonth()}/${date.getFullYear()} à ${date.getHours()}h${date.getMinutes()}`;
-                    console.log(date);
                     document.querySelector('#resultat').innerHTML += `<div class="elemResultat">${elem.departure} > ${elem.arrival} le ${date} pour ${elem.price} euros 
                     <button id=${elem._id} class="bookbutton">Book</button>
                     </div>`
@@ -23,49 +22,32 @@ document.querySelector('#search').addEventListener('click', function () {
 
             }
         })
-})
-
-document.querySelector(".bookbutton").addEventListener('click', function () {
-    let id = "66f2daa2d24cc1fa339458a8";
-    let trips = "66f28cfc1d7d9baab4f02281";
-    fetch(`http://localhost:3000/users/cart/${id}/${trips}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' }
-    })
-        .then(response => response.json())
-        .then(data => {
-            document.location.href = "cart.html";
-            fetch(`http://localhost:3000/users/${id}/`).then(response => response.json())
-                .then(data => {
-                    let panier = data.cart;
-                    if (panier) {
-                        document.getElementById('carts').innerHTML = ""
-                        for (let elem of panier) {
-                            document.getElementById('carts').innerHTML = `<h3>My cart</h3>
-                            <div class="trajetscart">
-                            ${elem.departure}>${elem.arrival}
-                            ${elem.date} 
-                            ${elem.price}
-                            <button id="${id} class="supprimerTrajet">X</button>
-                            </div>`
-                        }
-                    }
-
-                })
-            deleteTrajetCart()
-        })
-})
+        .finally(() => bookTrajet())
+});
 
 
-function deleteTrajetCart() {
-    for (let i = 0; i < document.querySelectorAll('.supprimerTrajet').length; i++) {
-        document.querySelectorAll('.supprimerTrajet')[i].addEventListener('click', function () {
-            fetch(`http://localhost:3000/users/cart/${this.id}`, { method: 'DELETE' })
+function bookTrajet() {
+    console.log("Inbook traject function")
+    let allBookButton = document.querySelectorAll(".bookbutton");
+    for (let elem of allBookButton) {
+        console.log("dans le for", elem);
+        elem.addEventListener('click', function () {
+            let id = "66f2daa2d24cc1fa339458a8";
+            let trips = this.id;
+            console.log("bouton appuye")
+            fetch(`http://localhost:3000/users/cart/${id}/${trips}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' }
+            })
                 .then(response => response.json())
                 .then(data => {
-                    this.parentNode.remove();
-                });
+                    document.location.href = "cart.html";
+                })
         })
     }
 }
+
+
+
+
 
