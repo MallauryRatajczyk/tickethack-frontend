@@ -14,8 +14,8 @@ document.querySelector('#search').addEventListener('click', function () {
                     let elem = data.data[i]
                     console.log(elem._id)
                     let date = new Date(elem.date)
-                    date = `${date.getUTCDate()}/${date.getMonth()}/${date.getFullYear()} à ${date.getHours()}h${date.getMinutes()}`;
-                    document.querySelector('#resultat').innerHTML += `<div class="elemResultat">${elem.departure} > ${elem.arrival} le ${date} pour ${elem.price} euros 
+                    date = `${date.getHours()}:${date.getMinutes()}`;
+                    document.querySelector('#resultat').innerHTML += `<div class="elemResultat">${elem.departure} >${elem.arrival} ${date} ${elem.price}€
                     <button id=${elem._id} class="bookbutton">Book</button>
                     </div>`
                 }

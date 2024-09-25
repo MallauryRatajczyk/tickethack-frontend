@@ -98,13 +98,14 @@ h1 {
     height: 25px;
     text-align:left;
     justify-content:space-between;
-    word-spacing: 11px;
+    word-spacing: 15px;
 }
 
 .bookbutton {
     background-color: #459E85;
     border-radius: 5px;
     color: white;
+    
     
 }
 
