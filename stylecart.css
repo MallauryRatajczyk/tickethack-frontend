@@ -1,0 +1,57 @@
+body {
+    margin: 0px;
+
+}
+
+header {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#menug {
+    display: flex;
+    flex-direction: row;
+    padding: 0 px;
+    margin: 0px;
+}
+
+#logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    padding-left: 30px;
+    color: #459E85;
+    font-size: 30px;
+}
+
+#cart,
+#booking {
+    padding: 0px 20px;
+    text-align: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+booking {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #EFF2F1;
+    height: 92vh;
+    width: 100vw;
+}
+
+#carts {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background-color: white;
+    width: 50%;
+    height: 25%;
+}
