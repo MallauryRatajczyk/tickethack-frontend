@@ -83,6 +83,19 @@ h1 {
     flex-direction: column;
     background-color: white;
     border-radius: 15px;
+    overflow-y: scroll;
+}
+
+.elemResultat {
+    padding: 10 px;
+    margin: 10px;
+    background-color: #F5EEEE;
+}
+
+.bookbutton {
+    background-color: #459E85;
+    border-radius: 5px;
+    color: white;
 }
 
 #btrain {
