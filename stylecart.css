@@ -55,6 +55,7 @@ booking {
     background-color: white;
     width: 50%;
     height: 50%;
+    overflow-y: scroll;
 }
 
 .trajetscart {
@@ -69,6 +70,10 @@ booking {
 }
 
 #PurchaseArea {
+    display: stretch;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
     color: white;
     margin: 0px;
     padding: 10px;
@@ -80,4 +85,16 @@ booking {
     border: none;
     color: white;
     background-color: #459E85;
+}
+
+#ensemble {
+    background-color: white;
+    width: 50vw;
+    height: 50vh;
+    overflow-y: scroll;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
 }
