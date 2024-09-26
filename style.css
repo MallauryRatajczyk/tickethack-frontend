@@ -97,17 +97,17 @@ h1 {
     border: none;
     width: 90%;
     height: 25px;
-    text-align:left;
-    justify-content:space-between;
-    word-spacing: 15px;
+    text-align: left;
+    justify-content: space-between;
+    word-spacing: 12px;
 }
 
 .bookbutton {
     background-color: #459E85;
     border-radius: 5px;
     color: white;
-    
-    
+
+
 }
 
 #btrain {

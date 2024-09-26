@@ -15,7 +15,7 @@ document.querySelector('#search').addEventListener('click', function () {
                     console.log(elem._id)
                     let date = new Date(elem.date)
                     date = `${date.getHours()}:${date.getMinutes()}`;
-                    document.querySelector('#resultat').innerHTML += `<div class="elemResultat">${elem.departure} >${elem.arrival} ${date} ${elem.price}€
+                    document.querySelector('#resultat').innerHTML += `<div class="elemResultat">${elem.departure}>${elem.arrival} ${date} ${elem.price}€
                     <button id=${elem._id} class="bookbutton">Book</button>
                     </div>`
                 }
